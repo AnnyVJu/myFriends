@@ -1,0 +1,141 @@
+body{
+    background: rgb(225, 164, 255) url("../img/bg.jpg");
+    background-size: inherit ;
+   /*  linear-gradient(217deg, rgba(255,0,224,.8), rgba(255,0,0,0) 70.71%),
+    linear-gradient(127deg, rgba(0,255,126,.8), rgba(0,255,0,0) 70.71%),
+    linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%); */
+    font-family: "Courier New", serif;
+}
+ .main-font{
+    font-family: 'Press Start 2P', cursive;
+ }
+
+.content{
+    border: 1px solid #e2e2e2;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 0 50px -4px rgba(143, 38, 143, 0.7);
+    background-color: black;
+    backdrop-filter: blur(8px);
+    min-height: 500px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.contents{
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    box-shadow: 0 0 50px -4px rgba(143, 38, 143, 0.7);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(3px);
+    min-height: 500px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+ul.errorlist{
+    color: red;
+    list-style: none;
+    font-size: 12px;
+}
+
+
+.avatar-img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.block{
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    box-shadow: 0 0 50px -4px rgba(143, 38, 143, 0.7);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(3px);
+    padding: 10px;
+    margin: 5px;
+    min-width: 160px;
+;
+}
+
+.left-menu a{
+    display: block;
+    line-height: 30px;
+    color: rgb(20, 93, 148);
+}
+
+.mainpage-avatar-img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.right-menu-links{
+    margin-top: 20px;
+}
+
+.right-menu-links a{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.card{
+    margin-bottom: 20px;
+    box-shadow: 0 0 50px -4px rgba(143, 38, 143, 0.7);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(3px);
+}
+
+.post{
+    padding-bottom: 0;
+}
+
+.post-title{
+    margin-bottom: 10px;
+}
+
+.post-author-img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    float: left;
+    margin-right: 10px;
+}
+
+.post-author{
+    font-weight: bold;
+    width: auto;
+    overflow: hidden;
+    height: 20px;
+    font-size: 14px;
+    display: block;
+}
+
+.post-datetime{
+    display: block;
+    width: auto;
+    overflow: hidden;
+    height: 20px;
+    font-size: 11px;
+    color: grey;
+}
+
+.post-text{
+    color: #414142;
+    font-size: 14px;
+}
+
+.comment{
+    color: #414142;
+    font-size: 14px;
+}
+
+.comment-body{
+    overflow: hidden;
+}
+
+.comment-author{
+    font-weight:bold;
+    color: rgb(68, 91, 139);
+}

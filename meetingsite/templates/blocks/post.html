@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static my_filters %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="block left-menu">
+                    <a href="{% url 'profile' %}">
+                        <i class="fa fa-user-circle"></i> Мой профиль
+                    </a>
+                    <a href="{% url 'home' %}">
+                        <i class="fa fa-newspaper-o"></i> Новости
+                    </a>
+                    <a href="{% url 'home' %}">
+                        <i class="fa fa-users"></i> Мои друзья
+                    </a>
+                </div>
+            </div>
+            <div class="col-6 content">
+                <div class="timeline">
+                    <div class="card">
+                        <div class="card-body post">
+                            <div class="post-title">
+                                {% if post.author.profile.avatar.name %}
+                                    <img src="{{ post.author.profile.avatar.url }}"
+                                         class="post-author-img img-thumbnail">
+                                {% else %}
+                                    <img src="{% static 'img/user.jpg' %}" class="post-author-img img-thumbnail">
+                                {% endif %}
+                                <div class="post-author">
+                                    <a href="{% url 'view_user' post.author.username %}">
+                                        {{ post.author.get_full_name }}
+                                    </a>
+                                </div>
+                                <div class="post-datetime">
+                                    {{ post.datetime|date:"d M Y H:i" }}
+                                </div>
+                            </div>
+                            {% if post.image.name %}
+                                <img src="{{ post.image.url }}" class="img-thumbnail"><br>
+                            {% endif %}
+                            <div class="post-text">
+                                {{ post.text|default_if_none:""|linebreaks|urlize }}
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div id="comments-list-post-{{ post.id }}">
+                                {% for comment in post.comments.all %}
+                                    {% place_comment comment %}
+                                {% endfor %}
+                            </div>
+                            <div class="comment-form">
+                                {% if user.profile.avatar.name %}
+                                    <img src="{{ user.profile.avatar.url }}" class="post-author-img img-thumbnail">
+                                {% else %}
+                                    <img src="{% static 'img/user.jpg' %}" class="post-author-img img-thumbnail">
+                                {% endif %}
+                                <div style="display: flex; margin-top: 4px;">
+                                    <input class="form-control form-control-sm comment-input"
+                                           placeholder="Оставить комментарий" data-post-id="{{ post.id }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="block" style="text-align: center;">
+                    <b>{{ user.get_full_name }}</b>
+                    {% if user.profile.avatar.name %}
+                        <img src="{{ user.profile.avatar.url }}" class="mainpage-avatar-img img-thumbnail">
+                    {% else %}
+                        <img src="{% static 'img/user.jpg' %}" class="mainpage-avatar-img img-thumbnail">
+                    {% endif %}
+                    <div class="right-menu-links">
+                        <a href="{% url 'profile' %}" class="btn btn-outline-primary btn-sm">
+                            <i class="fa fa-user-circle"></i> Мой профиль
+                        </a>
+                        <a href="{% url 'edit_profile' %}" class="btn btn-outline-success btn-sm">
+                            <i class="fa fa-pencil-square"></i> Редактировать
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
